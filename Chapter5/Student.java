@@ -1,13 +1,15 @@
 
 public class Student //implements Comparable
 {
-	//private static int population;
-	//public static int population;
-
+    // created when the first student is created or instantiated
+    // only ONE population variable is created - shared with all student objects
+   private static int population;
+    //public static int population;
+    // can init the static 
    private String firstName, lastName;
    private Address homeAddress;
 
-   //private static Address schoolAddress;
+   private static Address schoolAddress = new Address("440 W. Auroura Avenue", "Naperville", "IL", 60540);
 
 
 
@@ -16,8 +18,8 @@ public class Student //implements Comparable
    */
    public Student (String first, String last, Address home)
    {
-	   //static var increase pop for ever student created in that school
-	   //population ++; //System.out.println(population  );
+       //static var increase pop for ever student created in that school
+       population ++; //System.out.println(population  );
 
       firstName = first;
       lastName = last;
@@ -26,31 +28,31 @@ public class Student //implements Comparable
    }
 /**------------------------------------------------
 // returns the population = to the amount of student objects created
-
+*/
    public static int get_pop ()
    {
-	   return population;
+       return population;
    }
 
 
-	public Address getSchool()
-	{
+    public Address getSchool()
+    {
 
-		return schoolAddress;
+        return schoolAddress;
 
-	}
-*/
+    }
 
-	/**
+
+    /**
       //  implement Comparable by make the compareTo method
    */
 
    public int compareTo(Object obj)
    {
-		int result = 0;
-	   Student temp = (Student) obj;
+        int result = 0;
+       Student temp = (Student) obj;
 
-	   return result;
+       return result;
    }
 
 
@@ -58,7 +60,7 @@ public class Student //implements Comparable
 
   public String get_name()
   {
-   	return firstName;
+       return firstName;
 
    }
 
@@ -66,18 +68,19 @@ public class Student //implements Comparable
 
 
 
-	/*returns the amount of studnet obj created
-   public static int get_pop()
+    /*returns the amount of studnet obj created*/
+   
+    public static int getPop()
    {
-	   return population;
+       return population;
 
    }
-*/
+
 
 
    /**
    //  Returns this Student object as a string.
-   	@return ________
+       @return ________
    */
    public String toString()
    {

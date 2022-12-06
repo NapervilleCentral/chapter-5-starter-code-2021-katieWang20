@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Student
+comment1.params=first\ last\ home
+comment1.target=Student(java.lang.String,\ java.lang.String,\ Address)
+comment1.text=\r\n\ \ \ //\ \ Sets\ up\ this\ Student\ object\ with\ the\ specified\ initial\ values.\r\n
+comment2.params=
+comment2.target=int\ get_pop()
+comment2.text=------------------------------------------------\r\n//\ returns\ the\ population\ \=\ to\ the\ amount\ of\ student\ objects\ created\r\n
+comment3.params=
+comment3.target=Address\ getSchool()
+comment4.params=obj
+comment4.target=int\ compareTo(java.lang.Object)
+comment4.text=\r\n\ \ \ \ \ \ //\ \ implement\ Comparable\ by\ make\ the\ compareTo\ method\r\n
+comment5.params=
+comment5.target=java.lang.String\ get_name()
+comment6.params=
+comment6.target=int\ getPop()
+comment6.text=returns\ the\ amount\ of\ studnet\ obj\ created
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment7.text=\r\n\ \ \ //\ \ Returns\ this\ Student\ object\ as\ a\ string.\r\n\ \ \ \ \ \ \ @return\ ________\r\n
+numComments=8

@@ -5,6 +5,7 @@ import java.text.NumberFormat;
 
 public class mathy
 {
+    
     private int area=0;
     public static final double PI = 3.1415;
 
@@ -40,9 +41,9 @@ public class mathy
         @return int sum of values
     */
 
-    public double round(double num, int zeros)
+    public static double round(double num, int zeros)
     {
-
+        
         String afterDec = "";
         for (int i = 0; i< zeros; i++)
             afterDec +="0";
