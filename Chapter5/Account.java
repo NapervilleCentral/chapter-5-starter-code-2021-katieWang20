@@ -228,6 +228,7 @@ public class Account implements lockable, bofA ,Comparable
           /**  This is the section to implement interface Comparable
           // it compares the acctNumber
           */
+         
     public int compareTo (Object o)
     {
         //return - 1 if less than
