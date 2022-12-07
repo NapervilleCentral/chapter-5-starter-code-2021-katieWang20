@@ -33,7 +33,7 @@ public class Student //implements Comparable
    {
        return population;
    }
-
+    // you need an object to access this static variable
 
     public Address getSchool()
     {
@@ -61,19 +61,20 @@ public class Student //implements Comparable
   public String get_name()
   {
        return firstName;
-
-   }
+  
+  }
 
 
 
 
 
     /*returns the amount of studnet obj created*/
+   //does not need object. you can acess using Studen.getPop or Student obj.getPop;
    
-    public static int getPop()
+   public static int getPop()
    {
        return population;
-
+    
    }
 
 
@@ -89,7 +90,7 @@ public class Student //implements Comparable
       result = firstName + " " + lastName + "\n";
       result += "Home Address:\n" + homeAddress + "\n";
       //result += "School Address:\n" + schoolAddress;
-
+        
       return result;
    }
 }//end of Student
