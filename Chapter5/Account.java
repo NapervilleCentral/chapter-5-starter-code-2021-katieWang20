@@ -232,9 +232,9 @@ public class Account implements lockable, bofA ,Comparable
     {
         //return - 1 if less than
         //Object is an actual class; he is the container. polymorphism.
-        
+        Account a = (Account) o;
         //Object acctNum = o.acctNumber;
-        return this.acctNumber - o.acctNumber;
+        return this.acctNumber - a.acctNumber;
         
         //return 0;
 
