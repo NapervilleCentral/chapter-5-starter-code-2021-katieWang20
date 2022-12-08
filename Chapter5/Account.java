@@ -7,7 +7,7 @@
 
 import java.text.NumberFormat;
 
-public class Account implements lockable, bofA ,Comparable
+public class Account implements lockable, bofA,  Comparable
 {
    private NumberFormat fmt = NumberFormat.getCurrencyInstance();
 
@@ -232,9 +232,12 @@ public class Account implements lockable, bofA ,Comparable
     public int compareTo (Object o)
     {
         //return - 1 if less than
-        //Object is an actual class; he is the container. polymorphism.
-        Account a = (Account) o;
+        //Object is an actual class; he is the big container. polymorphism.
+        // (Account) is as cast
+    
+        Account a = (Account) o; 
         //Object acctNum = o.acctNumber;
+        
         return this.acctNumber - a.acctNumber;
         
         //return 0;

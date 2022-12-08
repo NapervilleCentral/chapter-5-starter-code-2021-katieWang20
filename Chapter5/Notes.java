@@ -17,6 +17,19 @@ public class Notes
         double num = mathy.round(3.34234324324, 2);
         //call straight from class level
         System.out.println(num);
-    
+        
+        Account one = new Account("Me", 1001, 1000);
+        Account two = new Account("You", 2001, 2000);
+        Account three = new Account("Them", 3001, 3000);
+        Account four = new Account("Us", 4001, 4000);
+        
+        Account[] bank = {three, one, four, two}; //calls compareTo and sorts by account Number
+        
+        Sorts.insertionSort(bank);
+        
+        for (Account a : bank){
+            System.out.println(a);
+        }
+        
     }
 }

@@ -28,7 +28,13 @@ public class Address
    {
        return 0;
    }
-
+    /**
+     * compare the street name in order then if equal
+     * compare the street number
+     * 123 Elm < 123 Maples
+     * 123 Elm > 50 Elm 
+     * parseInt()
+     */
 
    //-----------------------------------------------------------------
    //  Returns this Address object as a string.
