@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=priorities
+comment0.text=\r\n\ my\ moves\ my\ rules\ \r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n\ spell\ it\ right\!\!\!\!\!\!\!\r\n
+comment1.params=p
+comment1.target=void\ setPriority(double)
+comment2.params=
+comment2.target=double\ getPriority()
+numComments=3

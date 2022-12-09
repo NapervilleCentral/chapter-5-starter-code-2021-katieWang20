@@ -8,4 +8,5 @@ comment3.params=obj
 comment3.target=int\ compareTo(java.lang.Object)
 comment4.params=
 comment4.target=java.lang.String\ toString()
+comment4.text=\r\n\ compare\ the\ street\ name\ in\ order\ then\ if\ equal\r\n\ compare\ the\ street\ number\r\n\ 123\ Elm\ <\ 123\ Maples\r\n\ 123\ Elm\ >\ 50\ Elm\ \r\n\ parseInt()\r\n
 numComments=5
