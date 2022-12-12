@@ -9,15 +9,15 @@ public class Task implements priorities, Comparable
     
     private int x;
     private double pNumber;
-    private String pAction;
+    private String pTask;
     /**
      * Constructor for objects of class Task
      */
-    public Task(double number, String priorityAction)
+    public Task(double number, String priorityTask)
     {
         // initialise instance variables
-        number = pNumber;
-        String pAction = priorityAction;
+        pNumber = number;
+        pTask = priorityTask;
     }
     /**
      * 
@@ -52,4 +52,12 @@ public class Task implements priorities, Comparable
         
         
     }
+    
+    public String toString(){
+        String stuff;
+        stuff = "Task: " + pTask;
+        stuff += "\n Priority: " + pNumber;
+        return stuff;
+    }
+    
 }

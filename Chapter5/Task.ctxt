@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Task
 comment0.text=\r\n\ Katie\ Wang\r\n
-comment1.params=number\ priorityAction
+comment1.params=number\ priorityTask
 comment1.target=Task(double,\ java.lang.String)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Task\r\n
 comment2.params=p
@@ -12,4 +12,6 @@ comment3.target=double\ getPriority()
 comment4.params=obj
 comment4.target=int\ compareTo(java.lang.Object)
 comment4.text=\r\n\ \r\n\ compares\ priority\ number\ of\ the\ task\r\n\ @param\ obj\r\n\ \r\n
-numComments=5
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6
