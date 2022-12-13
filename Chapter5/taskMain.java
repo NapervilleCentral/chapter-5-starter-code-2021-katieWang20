@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class taskMain here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Katie Wang
+ * 12/13/2022
+ * Creates priorities and orders all of them
+ * 
  */
 public class taskMain 
 {
@@ -48,6 +48,7 @@ public class taskMain
         
         for (Task task : tasks){
             System.out.println(task);
+            System.out.println();
             
         }
         System.out.println("\n" + task4);
