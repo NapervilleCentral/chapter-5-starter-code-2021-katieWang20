@@ -1,6 +1,7 @@
 
 /**
  * Katie Wang
+ * Task 
  */
 
 public class Task implements priorities, Comparable
@@ -12,6 +13,7 @@ public class Task implements priorities, Comparable
     private String pTask;
     /**
      * Constructor for objects of class Task
+     * @param number, priority task
      */
     public Task(double number, String priorityTask)
     {
@@ -22,13 +24,16 @@ public class Task implements priorities, Comparable
     /**
      * 
      * sets the priority of the action from 1-10 (least to greatest priority)
-     * @param p
+     * @param p (priority number)
      */
     public void setPriority(double p){
         pNumber = p;
         
     } 
-    
+    /**
+     * gets the priority number
+     * @param none
+     */
     public double getPriority(){
         return pNumber;
     }
@@ -52,7 +57,12 @@ public class Task implements priorities, Comparable
         
         
     }
-    
+    /**
+     * 
+     * Returns task action and priority number
+     * @param none
+     * 
+     */
     public String toString(){
         String stuff;
         stuff = "Task: " + pTask;
