@@ -10,6 +10,7 @@ public class mainRegister
 {
     // instance variables - replace the example below with your own
     public static void main(String[] args){
+        
         // menu
         //buy candy by piece or by candy by weight
         Scanner input = new Scanner(System.in);
@@ -29,11 +30,13 @@ public class mainRegister
         }else if (choice == 3){
             System.out.println();
         }else{
+            //if choice is invalid, keep looping
             System.out.println("Not a valid choice.\n");
             while (choice < 1 || choice > 3){
                 System.out.println("1. Buy candy by piece\n2. Buy candy by weight\n3. Exit");
                 choice = input.nextInt();
             }
+            
         }
         
         
