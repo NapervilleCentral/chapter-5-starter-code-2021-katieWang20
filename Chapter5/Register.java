@@ -6,7 +6,7 @@
  */
 import java.util.Scanner;
 
-public class Reigster implements lockable
+public class Register implements lockable
 {
     // instance variables - replace the example below with your own
     private static double totalSales, totalWeight;
@@ -27,10 +27,10 @@ public class Reigster implements lockable
      * 
      */
     
-    public Reigster (int pieces){
+    public Register (int pieces){
         //for price by number of pieces
         this.pieces = pieces;    
-        totalPiecesSold += pieces;          
+        //totalPiecesSold += pieces;          
         price = pieces * 0.05;
         totalSales +=price;
         
@@ -41,10 +41,10 @@ public class Reigster implements lockable
      * 
      */
     
-    public Reigster (double weight){
+    public Register (double weight){
         this.weight = weight;
         totalWeight += weight;
-        totalPiecesSold += (int) ((double)1/20 * weight);    
+        pieces = (int) ((double)1/20 * weight);    
         price = weight * 1.00;
         totalSales +=price;
         
@@ -82,28 +82,60 @@ public class Reigster implements lockable
         return price;
     }
     
-    public double getThatDough(){
+    public double getTotalSales(){
+        return totalSales;
+    }
+    
+   
+    
+    public int getTotalPieces(){
+        return totalPiecesSold;
+    }
+    
+    public double takeMoney(int choice){
         double change = 0;
-        int money;
+        int money;  
+        System.out.println("The price is: " + price);
         System.out.println("Enter amount of money: ");
         money = input.nextInt();
         
         if (money > price){
             change = money - price;
+            System.out.printf("The change is %.2f" + change);
+            System.out.println();
+            totalPiecesSold += pieces;          
+            totalSales +=price;
+            
+            if (choice == 2){
+                totalWeight += weight;
+            }
         }else if (money < price){
             System.out.println("Not enough money. You are poor!");
             
         }else{
-            System.out.println("perfect");
+            System.out.println("Paid. No change");
+            totalPiecesSold += pieces;  
+            totalSales +=price;
+            
+            if (choice == 2){
+                totalWeight += weight;
+            }
+            
         }
         
-        
+                
         return change;
     
     }
     
-    
-    
+    public String toString(){
+        String stuff = "";
+        stuff += "Total sales: " + getTotalSales() +"\n";
+        stuff += "Total pieces sold: "+ getTotalPieces() + "\n";
+        stuff += "Total weight sold: " + getTotalWeight();
+        
+        return stuff;
+    }
     
     
     
