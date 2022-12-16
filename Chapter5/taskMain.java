@@ -28,8 +28,10 @@ public class taskMain
         Task task2 = new Task(5.4, "Organize shop down stairs");
         Task task3 = new Task (10, "Grade");
         Task task4 = new Task (2.1, "Tile Downstairs landing");
+        Task task5 = new Task (4, "Print Vynil decal");
         
-        Task[] tasks = {task1, task2, task3, task4};
+        
+        Task[] tasks = {task1, task2, task3, task4, task5};
         
         Sorts.insertionSort(tasks);
         

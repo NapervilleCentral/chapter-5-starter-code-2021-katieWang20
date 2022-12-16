@@ -20,11 +20,11 @@ public class mainRegister
         int choice = input.nextInt();
         
         if (choice == 1){
-            System.out.println("\nEnter amount of pieces of candy: ");
+            System.out.println("Enter amount of pieces of candy: ");
             candyAmount = input.nextInt();
             //setter
         }else if (choice == 2){
-            System.out.println("\nEnter the weight of the candy: ");
+            System.out.println("Enter the weight of the candy: ");
             candyWeight = input.nextDouble();
             
         }else if (choice == 3){
