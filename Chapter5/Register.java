@@ -1,6 +1,7 @@
 /**
  * Katie Wang
  * Bavya 
+ *
  */
 import java.util.Scanner;
 import java.text.DecimalFormat;
@@ -12,8 +13,10 @@ public class Register
     //end of the day, these are the combined numbers between the 2 registers
     private static double totalSalesWeight, totalSales;
     private static int totalPiecesSold;
+
   //sales for ONE register only!
     private double registerSales;
+
     //these store the values for each register independently
     private static double totalWeight;
     private static int totalPieces;
@@ -26,7 +29,9 @@ public class Register
     private int key;
     private boolean locked;
    
+
     private DecimalFormat fmt = new DecimalFormat("0.00");
+
     private Scanner input = new Scanner(System.in);
    
     /**
@@ -38,6 +43,7 @@ public class Register
         if (regType.equals("p")){
             this.regType = "p";
             pieces = 0;
+
           
           
             key = lockPin;
@@ -48,6 +54,25 @@ public class Register
             
             key = lockPin;
           
+
+            weight = (1.0/20) * pieces;
+            totalPieces += pieces;
+            totalSalesWeight += weight;
+            price = pieces * 0.05;
+            totalSales +=price;
+            totalPiecesSold += pieces;
+            key = lockPin;
+        }else if (regType.equals("w")){
+            this.regType = "w";
+            weight = 0;
+            totalWeight += weight;
+            pieces = (int) (20 * weight);
+            totalPiecesSold += pieces;
+            price = weight;
+            totalSales +=price;
+            totalSalesWeight += weight;
+            key = lockPin;
+
         } else
             System.out.println("Sorry, that is not a valid input");
     }
@@ -148,7 +173,7 @@ public class Register
      * @return nothing
      */
     public void setPieces(int newAmount){
-        
+   
         
         pieces = newAmount;
         //totalPieces +=pieces;
@@ -160,6 +185,9 @@ public class Register
 
       pieces =(int)((double)1/20 * (double)weight);
       price = weight * 1.00;
+
+        pieces = newAmount;
+
     }
    
     /**
@@ -168,12 +196,16 @@ public class Register
      * @return nothing
      */
     public void setWeight(double newAmount){
+
         
         weight = newAmount;
         //totalWeight += weight;
     }
 
     
+
+   
+
     /**
      * displays what the user wants to buy in weight or number of pieces, the
      * price of that amount of candy, asks the user for payment, and displays
@@ -183,12 +215,17 @@ public class Register
      */
     public void takeMoney(String buyingMethod){
         double change = 0;
+
         //double money = 0;
         
+
+        int money;  
+
         if (regType.equals("p"))
             System.out.println("You want to buy " + pieces + " pieces of candy");
         else if (regType.equals("w"))
             System.out.println("You want to buy " + weight + " pounds of candy");
+
         System.out.println("The price is: " + fmt.format(price));
       
         System.out.println("Enter amount of money: ");
@@ -232,14 +269,33 @@ public class Register
             
           }
         }
+
+        System.out.println("The price is: " + price);
+        System.out.println("Enter amount of money: ");
+        money = input.nextInt();
+        //pieces price ask for money change
+        if (money > price){
+            change = money - price;
+            System.out.printf("Your change is %.2f" + change);
+            System.out.println();
+        }else if (money < price){
+            System.out.println("Not enough money. You are poor!");
+        }else{
+            System.out.println("Paid. No change");
+        }
+       
+
     }
    
     public String toString(){
         String stuff = "";
+
         stuff += "Sales of THIS register: $" + fmt.format(registerSales) + "\n";
         stuff += "Total sales: $" + fmt.format(getTotalSales()) +"\n";
         stuff += "Total pieces sold: "+ getTotalNumOfPieces() + "\n";
         stuff += "Total weight sold: " + fmt.format(getTotalWeight());
+
+
        
         return stuff;
     }
