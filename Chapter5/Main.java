@@ -5,8 +5,9 @@ class Main {
     Register pieceRegister = new Register ("p", 0000);
     pieceRegister.setkey(1234);
 
+    pieceRegister.unlock(1232);
+    
     pieceRegister.unlock(1234);
-
     
     Register weightRegister = new Register("w", 1234);
     

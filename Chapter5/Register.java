@@ -1,13 +1,14 @@
 /**
  * Katie Wang
  * Bavya 
+ * Mr Hayes
  *
  */
 import java.util.Scanner;
 import java.text.DecimalFormat;
 //implements lockable
 
-public class Register 
+public class Register implements lockable
 {
     // instance variables
     //end of the day, these are the combined numbers between the 2 registers
@@ -17,7 +18,7 @@ public class Register
   //sales for ONE register only!
     private double registerSales;
 
-    //these store the values for each register independently
+    //these store the values for each register type independently
     private static double totalWeight;
     private static int totalPieces;
    
@@ -42,7 +43,7 @@ public class Register
     public Register (String regType, int lockPin){
         if (regType.equals("p")){
             this.regType = "p";
-            pieces = 0;
+            //pieces = 0;
 
           
           
@@ -50,29 +51,11 @@ public class Register
             
         }else if (regType.equals("w")){
             this.regType = "w";
-            weight = 0;
+            //weight = 0;
             
             key = lockPin;
-          
 
-            weight = (1.0/20) * pieces;
-            totalPieces += pieces;
-            totalSalesWeight += weight;
-            price = pieces * 0.05;
-            totalSales +=price;
-            totalPiecesSold += pieces;
-            key = lockPin;
-        }else if (regType.equals("w")){
-            this.regType = "w";
-            weight = 0;
-            totalWeight += weight;
-            pieces = (int) (20 * weight);
-            totalPiecesSold += pieces;
-            price = weight;
-            totalSales +=price;
-            totalSalesWeight += weight;
-            key = lockPin;
-
+        
         } else
             System.out.println("Sorry, that is not a valid input");
     }
@@ -94,6 +77,10 @@ public class Register
     public void lock ( int locker){
         if (locker == key){
             locked = true;
+            System.out.println("Your register is now locked");
+        
+        }else{
+            System.out.println("Sorry, that is the incorrect key");
         }
     }
    
@@ -102,9 +89,16 @@ public class Register
      * @param int unlocker
      * @return nothing
      */
+     public String getRegType(){
+        return regType;
+    }
+    
     public void unlock(int unlocker){
         if (unlocker == key){
+            System.out.println("Your Register is now unlocked");
             locked = false;
+        }else{
+            System.out.println("Sorry, that is the incorrect key");
         }
     }
    
@@ -128,8 +122,7 @@ public class Register
     }
    
     /**
-     * finds out how many pieces of candy the register that takes the number
-     * of pieces of candy the user wants to buy has sold
+     * finds out how many pieces of candy the piece register has
      * @param none
      * @return int totalPieces
      */
@@ -166,7 +159,14 @@ public class Register
     public double getPrice(){
         return price;
     }
-   
+    
+      public double getTotalSalesWeight(){
+        //weight and price are at a 1:1 ratio so getting the weight also
+        //gets us the price of this amount of candy
+        double allWeight = getTotalWeight() + ((double)getTotalPieces()/20);
+        return allWeight;
+    }
+    
     /**
      * sets the amount of pieces that the user wants to buy
      * @param int newAmount
@@ -186,7 +186,7 @@ public class Register
       pieces =(int)((double)1/20 * (double)weight);
       price = weight * 1.00;
 
-        pieces = newAmount;
+      
 
     }
    
@@ -219,7 +219,7 @@ public class Register
         //double money = 0;
         
 
-        int money;  
+        //int money;  
 
         if (regType.equals("p"))
             System.out.println("You want to buy " + pieces + " pieces of candy");
@@ -234,7 +234,7 @@ public class Register
         //pieces price ask for money change
 
         if (locked == true){
-          System.out.println("uh oh acces denied ");
+          System.out.println("uh oh access denied ");
          
         }else{
             if (money >= price || Math.abs(money - price) <=0.0001){
@@ -243,24 +243,26 @@ public class Register
                 else
                     change = money - price;
             
-              System.out.println("Your change is $" + fmt.format(change));
-              System.out.println();
+                System.out.println("Your change is $" + fmt.format(change));
+                System.out.println();
               //totalPieces += pieces;
               
               
                  if (regType.equals("p")){
-                 setPieces(pieces);
-                 totalWeight +=weight;
-                 }else{
+                     //setPieces(pieces);
+                     weight = (double)pieces * (double)1/20;
+                     totalWeight +=weight;
+                     
+                 } else{
                 
-                 totalWeight +=weight;
+                     totalWeight +=weight;
                 
-                 totalPieces +=pieces;
+                     totalPieces +=pieces;
                 
-              }
-            totalPiecesSold +=pieces;
-            registerSales += price;
-            totalSales += price;
+                 }
+              totalPiecesSold +=pieces;
+              registerSales += price;
+              totalSales += price;
             
             }else{
               System.out.println("Not enough money. You are poor!");
@@ -270,33 +272,53 @@ public class Register
           }
         }
 
-        System.out.println("The price is: " + price);
-        System.out.println("Enter amount of money: ");
-        money = input.nextInt();
-        //pieces price ask for money change
-        if (money > price){
-            change = money - price;
-            System.out.printf("Your change is %.2f" + change);
-            System.out.println();
-        }else if (money < price){
-            System.out.println("Not enough money. You are poor!");
-        }else{
-            System.out.println("Paid. No change");
-        }
+          
        
 
     }
-   
+    
+        public void getDailySales(){
+            if (locked() == false){
+                System.out.println("Today's sales: \nTotal sales at Pieces Register:$ " + totalPieces);
+                System.out.println("\nTotal sales at Weight Register: $" + getTotalWeight());
+                if (getRegType().equals("p")){
+                    System.out.println("\nTotal sales at this Pieces Register: $" + registerSales);
+                } else {
+                    System.out.println("\nTotal sales at this Weight Register: $" + registerSales);
+                }
+                   
+                System.out.println("\nTotal pieces sold today: " + getTotalNumOfPieces());
+                System.out.println("\nTotal pounds sold today: $" + getTotalSalesWeight());
+            }else{
+                System.out.println("Locked, please unlock first");
+            }
+        }
+        /**
+         * compilation of data about the Register object
+         * @param none
+         * @return String data
+         */
+        public String toString(){
+            String stuff = "";
+            stuff += "Total sales: " + getTotalSales() +"\n";
+            stuff += "Total pieces sold: "+ getTotalNumOfPieces() + "\n";
+            stuff += "Total weight sold: " + getTotalSalesWeight();
+           
+            return stuff;
+        }
+}
+    /*
     public String toString(){
         String stuff = "";
 
         stuff += "Sales of THIS register: $" + fmt.format(registerSales) + "\n";
         stuff += "Total sales: $" + fmt.format(getTotalSales()) +"\n";
-        stuff += "Total pieces sold: "+ getTotalNumOfPieces() + "\n";
-        stuff += "Total weight sold: " + fmt.format(getTotalWeight());
+        stuff += "Total pieces sold of all registers: "+ getTotalNumOfPieces() + "\n";
+        stuff += "Total weight sold of all registers: " + fmt.format(getTotalSalesWeight());
 
 
        
         return stuff;
     }
+    */
 }
