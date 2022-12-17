@@ -277,7 +277,7 @@ public class Register implements lockable
 
     }
     
-        public void getDailySales(){
+    public void getDailySales(){
             if (locked() == false){
                 System.out.println("Today's sales: \nTotal sales at Pieces Register:$ " + totalPieces);
                 System.out.println("\nTotal sales at Weight Register: $" + getTotalWeight());
@@ -292,20 +292,20 @@ public class Register implements lockable
             }else{
                 System.out.println("Locked, please unlock first");
             }
-        }
+    }
         /**
          * compilation of data about the Register object
          * @param none
          * @return String data
          */
-        public String toString(){
+    public String toString(){
             String stuff = "";
             stuff += "Total sales: " + getTotalSales() +"\n";
-            stuff += "Total pieces sold: "+ getTotalNumOfPieces() + "\n";
-            stuff += "Total weight sold: " + getTotalSalesWeight();
+            stuff += "Total pieces sold: "+ getTotalPieces() + "\n";
+            //stuff += "Total weight sold: " + getTotalSalesWeight();
            
             return stuff;
-        }
+    }
 }
     /*
     public String toString(){
