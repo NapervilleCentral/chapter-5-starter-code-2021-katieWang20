@@ -2,7 +2,7 @@
  * Katie Wang
  * Bavya 
  * Mr Hayes
- * 12/16
+ * 
  */
 import java.util.Scanner;
 import java.text.DecimalFormat;
