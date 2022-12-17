@@ -2,13 +2,13 @@
  * Katie Wang
  * Bavya 
  * Mr Hayes
- *
+ * 
  */
 import java.util.Scanner;
 import java.text.DecimalFormat;
 //implements lockable
 
-public class Register implements lockable
+public class Register implements lockable 
 {
     // instance variables
     //end of the day, these are the combined numbers between the 2 registers
@@ -17,7 +17,7 @@ public class Register implements lockable
 
   //sales for ONE register only!
     private double registerSales;
-
+    
     //these store the values for each register type independently
     private static double totalWeight;
     private static int totalPieces;
@@ -28,7 +28,7 @@ public class Register implements lockable
     private double price;
     private String regType;
     private int key;
-    private boolean locked;
+    private boolean locked = true;
    
 
     private DecimalFormat fmt = new DecimalFormat("0.00");
@@ -43,15 +43,13 @@ public class Register implements lockable
     public Register (String regType, int lockPin){
         if (regType.equals("p")){
             this.regType = "p";
-            //pieces = 0;
-
-          
+                 
           
             key = lockPin;
             
         }else if (regType.equals("w")){
             this.regType = "w";
-            //weight = 0;
+   
             
             key = lockPin;
 
@@ -176,7 +174,7 @@ public class Register implements lockable
    
         
         pieces = newAmount;
-        //totalPieces +=pieces;
+       
         price = pieces * 0.05;
     }
 
@@ -199,7 +197,7 @@ public class Register implements lockable
 
         
         weight = newAmount;
-        //totalWeight += weight;
+       
     }
 
     
@@ -216,10 +214,6 @@ public class Register implements lockable
     public void takeMoney(String buyingMethod){
         double change = 0;
 
-        //double money = 0;
-        
-
-        //int money;  
 
         if (regType.equals("p"))
             System.out.println("You want to buy " + pieces + " pieces of candy");
@@ -245,7 +239,7 @@ public class Register implements lockable
             
                 System.out.println("Your change is $" + fmt.format(change));
                 System.out.println();
-              //totalPieces += pieces;
+            
               
               
                  if (regType.equals("p")){
@@ -266,8 +260,7 @@ public class Register implements lockable
             
             }else{
               System.out.println("Not enough money. You are poor!");
-            //totalPieces = totalPieces - pieces;
-            //totalPiecesSold = totalPiecesSold - pieces;
+            
             
           }
         }
@@ -279,16 +272,16 @@ public class Register implements lockable
     
     public void getDailySales(){
             if (locked() == false){
-                System.out.println("Today's sales: \nTotal sales at Pieces Register:$ " + totalPieces);
-                System.out.println("\nTotal sales at Weight Register: $" + getTotalWeight());
+                //System.out.println("Today's sales: \nTotal sales at Pieces Register:$ " + totalPieces);
+                //System.out.println("\nTotal sales at Weight Register: $" + getTotalWeight());
                 if (getRegType().equals("p")){
-                    System.out.println("\nTotal sales at this Pieces Register: $" + registerSales);
+                    System.out.println("\nTotal sales at this Pieces Register: $" + fmt.format(registerSales));
                 } else {
-                    System.out.println("\nTotal sales at this Weight Register: $" + registerSales);
+                    System.out.println("\nTotal sales at this Weight Register: $" + fmt.format(registerSales));
                 }
                    
-                System.out.println("\nTotal pieces sold today: " + getTotalNumOfPieces());
-                System.out.println("\nTotal pounds sold today: $" + getTotalSalesWeight());
+                System.out.println("\nTotal pieces sold today (both): " + getTotalNumOfPieces());
+                System.out.println("\nTotal pounds sold today (both): " + fmt.format(getTotalSalesWeight()));
             }else{
                 System.out.println("Locked, please unlock first");
             }
@@ -300,24 +293,11 @@ public class Register implements lockable
          */
     public String toString(){
             String stuff = "";
-            stuff += "Total sales: " + getTotalSales() +"\n";
-            stuff += "Total pieces sold: "+ getTotalPieces() + "\n";
-            //stuff += "Total weight sold: " + getTotalSalesWeight();
+            stuff += "Total sales overall: $" + fmt.format(getTotalSales()) +"\n";
+            stuff += "Total pieces sold overall: "+ getTotalNumOfPieces() + "\n";
+            stuff += "Total pounds sold overall: " + fmt.format(getTotalSalesWeight());
            
             return stuff;
     }
 }
-    /*
-    public String toString(){
-        String stuff = "";
 
-        stuff += "Sales of THIS register: $" + fmt.format(registerSales) + "\n";
-        stuff += "Total sales: $" + fmt.format(getTotalSales()) +"\n";
-        stuff += "Total pieces sold of all registers: "+ getTotalNumOfPieces() + "\n";
-        stuff += "Total weight sold of all registers: " + fmt.format(getTotalSalesWeight());
-
-
-       
-        return stuff;
-    }
-    */

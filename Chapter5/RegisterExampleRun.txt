@@ -1,0 +1,189 @@
+
+
+Make a selection
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+p
+enter amount of pieces: 
+100
+You want to buy 100 pieces of candy
+The price is: 5.00
+Enter amount of money: 
+6
+uh oh access denied 
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+x
+Enter 4-digit pin to unlock weight register
+1234
+Your Register is now unlocked
+Enter 4-digit pin to unlock piece register
+1232
+Sorry, that is the incorrect key
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+invalid
+
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+x
+already unlocked
+Enter 4-digit pin to unlock piece register
+1234
+Your Register is now unlocked
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+invalid
+
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+w
+enter weight: 
+122
+You want to buy 122.0 pounds of candy
+The price is: 122.00
+Enter amount of money: 
+122
+Your change is $0.00
+
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+w
+enter weight: 
+213
+You want to buy 213.0 pounds of candy
+The price is: 213.00
+Enter amount of money: 
+22
+Not enough money. You are poor!
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+p
+enter amount of pieces: 
+67
+You want to buy 67 pieces of candy
+The price is: 3.35
+Enter amount of money: 
+5
+Your change is $1.65
+
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+s
+Sales for the day
+Piece Register: 
+
+
+Total sales at this Pieces Register: $3.35
+
+Total pieces sold today (both): 73
+
+Total pounds sold today (both): 125.64
+Weight Register : 
+
+
+Total sales at this Weight Register: $122.00
+
+Total pieces sold today (both): 73
+
+Total pounds sold today (both): 125.64
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+p
+enter amount of pieces: 
+34
+You want to buy 34 pieces of candy
+The price is: 1.70
+Enter amount of money: 
+1.8
+Your change is $0.10
+
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+q
+Sales for the day
+Piece Register: 
+
+
+Total sales at this Pieces Register: $5.05
+
+Total pieces sold today (both): 107
+
+Total pounds sold today (both): 127.35
+Weight Register : 
+
+
+Total sales at this Weight Register: $122.00
+
+Total pieces sold today (both): 107
+
+Total pounds sold today (both): 127.35
+
+Total sales overall: $127.05
+Total pieces sold overall: 107
+Total pounds sold overall: 127.35
+Your register is now locked
+Your register is now locked
+
+p) Buy candy on # of pieces
+w) Buy candy on weight.
+x) Lock or unlock register.
+s) Display sales for the day
+q) display sales for the day and close store
+Press z key to exit.
+z
